@@ -1,0 +1,14 @@
+.divCart {
+    color: rgb(243, 184, 33);
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    
+}
+
+.cart{
+    height: 40px;
+    margin: 0 10px;
+    
+}
