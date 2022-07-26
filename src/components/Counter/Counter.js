@@ -17,7 +17,7 @@ const Counter= ({stock} ) =>{
                 console.log ("Productos añadidos al carrito:",count)
                 setCount(0) 
             } else {
-                console.log ("Stock insuficiente existen "+stock+" productos. ")
+                console.log (`Stock insuficiente existen ${stock} productos.`)
             }
         }
     }
@@ -25,7 +25,7 @@ const Counter= ({stock} ) =>{
 
     const increment = () => {
         if (count < stock) {
-            setCount(count+1)
+            setCount(prev => prev +1)
         }
         
     }
@@ -33,7 +33,7 @@ const Counter= ({stock} ) =>{
 
     const decrement = () => {
         if (count > 1) {
-            setCount(count-1)
+            setCount(prev => prev -1)
     }
     }
 

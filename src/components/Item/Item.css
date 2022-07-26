@@ -1,18 +1,3 @@
-h1 { font-size: 45px;
-    font-weight: bolder;
-    text-align: center;
-    color:  rgb(192, 19, 19);
-}
-
-.productos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: rgb(0, 0, 0) 3px solid;
-    border-radius: 15px;
-    padding: 100px;
-    background-color: rgb(128, 128, 128);
-}
 .productos div{
     display: flex;
     flex-direction: column;

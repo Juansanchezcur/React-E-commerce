@@ -14,7 +14,7 @@ function App() {
       
       <main>
         <ItemListContainer greeting="Bienvenidos a BurgerHouse"/>
-        <Counter  stock={5} />
+        
       </main>
     </div>
   );
