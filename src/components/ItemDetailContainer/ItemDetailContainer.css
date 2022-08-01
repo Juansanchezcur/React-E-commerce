@@ -1,9 +1,6 @@
-.productos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.ItemDetailContainer{
     border: rgb(0, 0, 0) 3px solid;
     border-radius: 15px;
-    padding: 100px;
     background-color: rgb(201, 198, 198);
+    margin: 60px;
 }

@@ -3,6 +3,8 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Counter from './components/Counter/Counter';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+
 
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
       
       <main>
         <ItemListContainer greeting="Bienvenidos a BurgerHouse"/>
-        
+        <ItemDetailContainer/>
       </main>
     </div>
   );

@@ -14,7 +14,6 @@ nav {
     display: flex;
     justify-content:space-between;
     align-items: center;
-    width: 100vw;
 background-color: rgba(0, 0, 0, 0.897);   
 }
 nav button {
