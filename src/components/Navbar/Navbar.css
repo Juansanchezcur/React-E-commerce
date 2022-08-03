@@ -16,7 +16,8 @@ nav {
     align-items: center;
 background-color: rgba(0, 0, 0, 0.897);   
 }
-nav button {
+nav a {
+    text-decoration:none;
     font-size: 18px;
     color: rgb(192, 19, 19);
     font-weight: bold;
@@ -24,6 +25,6 @@ nav button {
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
-    border: rgb(0, 0, 0) 3px solid;
+    border: rgb(192, 19, 19) 3px solid;
 
 }

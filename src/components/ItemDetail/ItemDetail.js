@@ -1,3 +1,4 @@
+import React from 'react';
 import './ItemDetail.css';
 import Counter from '../Counter/Counter'
 
