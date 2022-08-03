@@ -9,25 +9,28 @@ align-items: center;
     border-radius: 15px;
 }
 
-h2 {font-size: 30px;
+h2 {font-size: 50px;
     font-weight: bolder;
     text-align: center;
     margin-bottom: 100px;
     border: rgb(0, 0, 0) 3px solid;
+    text-shadow: 1px 1px #807d7d;
     border-radius: 15px;
     background-color: rgba(235, 23, 23, 0.801);
     padding: 15px 30px;
 }
 
 .Info {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bolder;
     text-align: center;
     padding: 25px;
 }
 
 .Info span {
-    color: rgba(235, 23, 23, 0.801);
+    font-size: 35px;
+    color: rgb(235, 23, 23);
+    text-shadow: 1px 1px #000000;
 }
 
 .Precio{

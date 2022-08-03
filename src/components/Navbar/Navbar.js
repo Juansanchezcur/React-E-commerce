@@ -14,6 +14,7 @@ return(
     </div>
    <CartWidget/>
     <div>
+        <p className="Filtros">Filtros: </p>
         <Link  to={`/`}>Todos los productos</Link>
         <Link  to={`/category/Hamburguesas`}>Hamburguesas</Link>
         <Link  to={`/category/Pizzas`}>Pizzas</Link>
