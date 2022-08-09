@@ -1,8 +1,34 @@
 import React from 'react';
 import './ItemDetail.css';
-import Counter from '../Counter/Counter'
+import ItemCounter from '../ItemCount/ItemCount'
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+
 
 const ItemDetail = ({ id, nombre, tipo, imagen, ingredientes, stock, precio}) => {
+
+    const [quantity, setQuantity] = useState(0)
+    
+    
+    const handleOnAdd = (quantity) => {
+       
+        if(quantity===0){
+            console.log ("No se pueden agregar 0 productos")   
+        }
+        else {
+            if (quantity <= stock) {
+                console.log ("Productos añadidos al carrito:",quantity)
+    setQuantity(quantity)
+            } else {
+                console.log (`Stock insuficiente existen ${stock} productos.`)
+            }
+        }
+    }
+    
+
+
+
     return (
         <article className="CardItem">
             <header >
@@ -25,7 +51,7 @@ const ItemDetail = ({ id, nombre, tipo, imagen, ingredientes, stock, precio}) =>
             <span>Precio:</span> {precio}
                 </p>          
             <footer className='ItemFooter'>
-                <Counter stock={stock} />
+            { quantity > 0 ? <Link className='IrAlCarrito' to='/cart'>Ir al carrito</Link> :  <ItemCounter stock={stock} onAdd={handleOnAdd} />}
             </footer>
         </article>
     )
