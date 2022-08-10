@@ -2,14 +2,15 @@ import React from 'react';
 import './ItemDetail.css';
 import ItemCounter from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-
+import { useState, useContext } from 'react';
+import { CartContext } from '../../context/CartContext'
 
 
 const ItemDetail = ({ id, nombre, tipo, imagen, ingredientes, stock, precio}) => {
 
     const [quantity, setQuantity] = useState(0)
-    
+    const { addItem, getProductQuantity } = useContext(CartContext)
+    const quantityAdded = getProductQuantity(id) 
     
     const handleOnAdd = (quantity) => {
        
@@ -19,7 +20,8 @@ const ItemDetail = ({ id, nombre, tipo, imagen, ingredientes, stock, precio}) =>
         else {
             if (quantity <= stock) {
                 console.log ("Productos añadidos al carrito:",quantity)
-    setQuantity(quantity)
+                setQuantity(quantity)
+                addItem({id, nombre, precio, quantity})
             } else {
                 console.log (`Stock insuficiente existen ${stock} productos.`)
             }
@@ -51,7 +53,7 @@ const ItemDetail = ({ id, nombre, tipo, imagen, ingredientes, stock, precio}) =>
             <span>Precio:</span> {precio}
                 </p>          
             <footer className='ItemFooter'>
-            { quantity > 0 ? <Link className='IrAlCarrito' to='/cart'>Ir al carrito</Link> :  <ItemCounter stock={stock} onAdd={handleOnAdd} />}
+            { quantity > 0 ? <Link className='IrAlCarrito' to='/cart'>Ir al carrito</Link> :  <ItemCounter stock={stock} onAdd={handleOnAdd} initial={quantityAdded}/>}
             </footer>
         </article>
     )
