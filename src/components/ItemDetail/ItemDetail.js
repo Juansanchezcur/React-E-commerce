@@ -22,6 +22,7 @@ const ItemDetail = ({ id, nombre, tipo, imagen, ingredientes, stock, precio}) =>
                 console.log ("Productos añadidos al carrito:",quantity)
                 setQuantity(quantity)
                 addItem({id, nombre, precio, quantity})
+                
             } else {
                 console.log (`Stock insuficiente existen ${stock} productos.`)
             }
