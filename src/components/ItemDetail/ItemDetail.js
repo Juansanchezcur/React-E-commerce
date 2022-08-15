@@ -54,7 +54,7 @@ const ItemDetail = ({ id, nombre, tipo, imagen, ingredientes, stock, precio}) =>
             <span>Precio:</span> {precio}
                 </p>          
             <footer className='ItemFooter'>
-            { quantity > 0 ? <Link className='IrAlCarrito' to='/cart'>Ir al carrito</Link> :  <ItemCounter stock={stock} onAdd={handleOnAdd} initial={quantityAdded}/>}
+            { quantity > 0 ? <Link className='BotonCarrito' to='/cart'>Ir al carrito</Link> :  <ItemCounter stock={stock} onAdd={handleOnAdd} initial={quantityAdded}/>}
             </footer>
         </article>
     )
