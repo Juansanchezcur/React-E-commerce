@@ -93,28 +93,3 @@ const productos=[
 ]
 
 
-export const getProducts= ()=>{
-
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve (productos)
-        }, 600)
-})
-}
-
-export const getProductById = (id) => {
-    return new Promise (resolve => {
-        setTimeout(() => {
-            resolve(productos.find(prod => prod.id === id))
-        }, 500)
-    })
-}
-
-export const getProductsByCategory = (categoryId) => {
-    return new Promise (resolve => {
-        setTimeout(() => {
-            console.log(categoryId)
-            resolve(productos.filter(prod => prod.tipo === categoryId))
-        }, 500)
-    })
-}
