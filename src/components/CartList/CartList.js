@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import './CartList.css'
 
@@ -8,7 +9,7 @@ import './CartList.css'
   export const CartList = () =>  {
     
     
-    const{getCartPrice,cart, removeItem, getCartQuantity }=useContext(CartContext)
+    const{getCartPrice,cart, removeItem, getCartQuantity, clearCart }=useContext(CartContext)
     
     const quantity = getCartQuantity()
     const total=getCartPrice()
@@ -43,8 +44,10 @@ import './CartList.css'
                     </tbody> 
                     
             </table>
-            <h4>Total:{total}</h4>  
-            {quantity !==0?<button className="BotonCarrito">Procesar Compra</button>:<h4>Agrega productos al carrito</h4>} 
+            <h4>Total:{total}</h4> 
+            
+            {quantity !==0?<Link to='/checkout'className="BotonCarrito">Ir al Checkout</Link>:<h4>Agrega productos al carrito</h4>} 
+            <button onClick={() => clearCart()} className="BotonCarrito">Limpiar carrito</button>
         </div>
    
         
