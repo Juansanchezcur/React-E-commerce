@@ -1,43 +1,43 @@
-import React from 'react';
-import './ItemListContainer.css';
-import { useState, useEffect } from 'react';
-import { ItemList } from '../ItemList/ItemList';
-import { useParams } from 'react-router-dom';
-import {getDocs, collection, query, where} from 'firebase/firestore'
-import {db} from '../../Services/firebase/index'
+import React from "react";
+import "./ItemListContainer.css";
+import { ItemList } from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import { getProducts } from "../../Services/firebase/firestore";
+import { fetcher } from "../../utils/fetcher";
+import { useAsync } from "../../hooks/useAsync";
 
-const ItemListContainer= (props) =>{
+const ItemListContainer = (props) => {
+  const { categoryId } = useParams();
 
-    const [products, setProducts]= useState([])
-    const {categoryId}=useParams()
-   
-    
-    useEffect(()=>{
-        
-        const collectionReference = !categoryId
-        ? collection(db, 'productos')
-        : query(collection(db, 'productos'), where('tipo', '==', categoryId))  
-        
-        getDocs(collectionReference).then(response=>{
-            const productosDB = response.docs.map(doc =>{
-                return {id:doc.id, ...doc.data()}
-            })
-            setProducts(productosDB)
-        })
-        
+  const { isLoading, data, error } = useAsync(
+    fetcher(getProducts, categoryId),
+    [categoryId]
+  );
 
-    },[categoryId] )
+  if (data?.length === 0) {
+    return categoryId ? (
+      <h1>
+        Disculpe, todavía no hay productos en nuestra categoria {categoryId}
+      </h1>
+    ) : (
+      <h1>No hay productos disponibles</h1>
+    );
+  }
 
-     
-    
-    
-    return(
-        <>
-             <h1>{props.greeting}</h1>
-          <ItemList products={products} />
-        </>
-    )
+  if (isLoading) {
+    return <h1>Espera mientras cargamos tus productos...</h1>;
+  }
 
-}
+  if (error) {
+    return <h1>Hubo un error, lo solucionaremos a la brevedad</h1>;
+  }
 
-export default ItemListContainer
+  return (
+    <>
+      <h1>{props.greeting}</h1>
+      <ItemList products={data} />
+    </>
+  );
+};
+
+export default ItemListContainer;
